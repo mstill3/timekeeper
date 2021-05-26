@@ -1,4 +1,4 @@
-# electron-quick-start
+# timekeeper
 
 **Clone and run for a quick way to see Electron in action.**
 
@@ -14,7 +14,7 @@ A basic Electron application needs just these files:
 
 You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
 
-## Prerequites
+## Prerequisites
 
 Install yarn: `npm install --global yarn`
 
