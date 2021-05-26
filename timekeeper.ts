@@ -5,10 +5,13 @@ document.getElementById("clockOutButton").onclick = clockOutButtonPress;
 document.getElementById("resetButton").onclick = resetButtonPress;
 
 var timeLabel = document.getElementById("timeLabel");
+var runningTimeLabel = document.getElementById("runningTimeLabel");
 
 
 // Setup variables
 var lastTimePoint;
+var runningTotal;
+
 
 // Setup logic fns
 function getTimeElapsed() {
@@ -56,9 +59,22 @@ function clockInButtonPress() {
 }
 
 function clockOutButtonPress() {
-    timeLabel.innerHTML = prettyOutput(getTimeElapsed());
+    runningTotal = getTimeElapsed();
+    lastTimePoint = 0;
 }
 
 function resetButtonPress() {
+    lastTimePoint = 0;
     timeLabel.innerHTML = "";
 }
+
+// On second update fn
+// Update the count down every 1 second
+setInterval(function() {
+    if (lastTimePoint) {
+        timeLabel.innerHTML = prettyOutput(getTimeElapsed());
+    }
+    if (runningTotal) {
+        runningTimeLabel.innerHTML = prettyOutput(runningTotal);
+    }
+  }, 1000);
