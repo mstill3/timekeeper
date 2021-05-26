@@ -2,3 +2,4 @@ node_modules
 timekeeper.js
 timekeeper.js.map
 dist
+.DS_Store
