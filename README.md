@@ -14,6 +14,9 @@ A basic Electron application needs just these files:
 
 You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
 
+## References
+- App Icon by <a href="https://freeicons.io/profile/3">icon king1</a> on <a href="https://freeicons.io">freeicons.io</a>
+                                
 ## Prerequisites
 
 Install yarn: `npm install --global yarn`
