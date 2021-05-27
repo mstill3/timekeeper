@@ -54,11 +54,13 @@ const clockInButtonPress = () => {
     lastTimePoint = new Date().getTime();
     // console.log(lastTimePoint);
     startTimeLabel.innerHTML = new Date().toDateString();
+    localStorage.setItem('test', 'Matt');
 };
 
 const clockOutButtonPress = () => {
     runningTotal = getTimeElapsed();
     lastTimePoint = 0;
+    alert(localStorage.getItem('test'))
 };
 
 const resetButtonPress = () => {

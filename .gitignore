@@ -1,5 +1,5 @@
 node_modules
-timekeeper.js
-timekeeper.js.map
+src/*.js
+src/*.js.map
 dist
 .DS_Store

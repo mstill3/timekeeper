@@ -1,14 +1,16 @@
 { 
     "compilerOptions": {
       "target": "esnext",
-      "module": "commonjs",
+      "module": "es6",
+      "lib": ["es6", "es5", "es7", "dom"],
       "moduleResolution": "node",
       "sourceMap": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "removeComments": false,
       "noImplicitAny": false,
-      "suppressImplicitAnyIndexErrors": true 
+      "suppressImplicitAnyIndexErrors": true,
+      "outDir": "./dist"
     },
-    "exclude": [ "node_modules" ] 
+    "exclude": [ "node_modules", "build", "dist" ] 
 }

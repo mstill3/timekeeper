@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/tsc",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-packager . timekeeper --icon ./favicon.icns --out dist"
+    "package": "electron-packager . timekeeper --icon ./assets/favicon.icns --out dist"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -28,6 +28,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "bulma": "^0.9.2"
+    "bulma": "^0.9.2",
+    "nedb": "^1.8.0"
   }
 }
