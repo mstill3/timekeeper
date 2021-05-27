@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
@@ -10,21 +10,39 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to timekeeper!</h1>
-      <p>
+      <div class="box">
+        <h1 class="title">timekeeper</h1>
+        <h2 class="subtitle">Tracks your time in and out</h2>
+        <!-- <p>
         We are using Node.js <span id="node-version"></span>,
         Chromium <span id="chrome-version"></span>,
         and Electron <span id="electron-version"></span>.
-      </p>
+      </p> -->
 
 
-      <button class="button is-success" id="clockInButton" type="button">clock in</button>
-      <button class="button is-danger" id="clockOutButton" type="button">clock out</button>
-      <button class="button is-dark" id="resetButton" type="button">reset</button>
+        <button class="button is-success" id="clockInButton" type="button">clock in</button>
+        <button class="button is-warning" id="clockBreakInButton" type="button">take break</button>
+        <button class="button is-warning" id="clockBreakOutButton" type="button">end break</button>
+        <button class="button is-danger" id="clockOutButton" type="button">clock out</button>
+        <button class="button is-dark" id="resetButton" type="button">reset</button>
+      </div>
+
+      <div class="box">
+        <div class="columns">
+          <div class="column">
+            <span id="startTimeLabel"></span>
+          </div>
+          <div class="column">
+            <span id="timeLabel"></span>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <span id="runningTimeLabel"></span>
+          </div>
+        </div>
+      </div>
       
-
-      <p id="timeLabel"></p>
-      <p id="runningTimeLabel"></p>
     </div>
 
     <!-- You can also require other files to run in this process -->

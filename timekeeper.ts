@@ -1,20 +1,18 @@
-
-// Connect html elements to vars and fns
-document.getElementById("clockInButton").onclick = clockInButtonPress;
-document.getElementById("clockOutButton").onclick = clockOutButtonPress;
-document.getElementById("resetButton").onclick = resetButtonPress;
-
-var timeLabel = document.getElementById("timeLabel");
-var runningTimeLabel = document.getElementById("runningTimeLabel");
-
-
 // Setup variables
-var lastTimePoint;
-var runningTotal;
+var lastTimePoint: number;
+var runningTotal: TimeDifference;
+
+
+interface TimeDifference {
+    days?: number;
+    hours?: number;
+    minutes?: number;
+    seconds?: number;
+}
 
 
 // Setup logic fns
-function getTimeElapsed() {
+const getTimeElapsed = (): TimeDifference => {
     if (lastTimePoint) {
         // Get today's date and time
         var now = new Date().getTime();
@@ -34,43 +32,44 @@ function getTimeElapsed() {
     }
 }
 
-function getPlural(number, string) {
-    return number === 1 ? ` ${string} ` : ` ${string}s `;
+const getPlural = (num: number, word: string) => {
+    return num === 1 ? ` ${word} ` : ` ${word}s `;
 }
 
-function prettyOutput(timeDifference) {
+const prettyOutput = (timeDifference: TimeDifference): string => {
     return (
         (timeDifference.days ? timeDifference.days + getPlural(timeDifference.days, 'day') : '').concat(
             (timeDifference.hours ? timeDifference.hours + getPlural(timeDifference.hours, 'hour') : '').concat(
                 (timeDifference.minutes ? timeDifference.minutes + getPlural(timeDifference.minutes, 'minute') : '').concat(
-                    (timeDifference.seconds ? timeDifference.seconds + getPlural(timeDifference.seconds, 'second') : '')
+                    (timeDifference.seconds ? timeDifference.seconds + getPlural(timeDifference.seconds, 'second') : '0 seconds')
                 )
             )
         )
     );
-}
+};
 
 
 // Button press fns
-function clockInButtonPress() {
+const clockInButtonPress = () => {
     lastTimePoint = new Date().getTime();
-    console.log(lastTimePoint)
-    timeLabel.innerHTML = prettyOutput(getTimeElapsed());
-}
+    // console.log(lastTimePoint);
+    startTimeLabel.innerHTML = new Date().toDateString();
+};
 
-function clockOutButtonPress() {
+const clockOutButtonPress = () => {
     runningTotal = getTimeElapsed();
     lastTimePoint = 0;
-}
+};
 
-function resetButtonPress() {
+const resetButtonPress = () => {
     lastTimePoint = 0;
     timeLabel.innerHTML = "";
-}
+};
 
 // On second update fn
 // Update the count down every 1 second
-setInterval(function() {
+setInterval(() => {
+    // alert(lastTimePoint)
     if (lastTimePoint) {
         timeLabel.innerHTML = prettyOutput(getTimeElapsed());
     }
@@ -78,3 +77,14 @@ setInterval(function() {
         runningTimeLabel.innerHTML = prettyOutput(runningTotal);
     }
   }, 1000);
+
+
+  // 
+// Connect html elements to vars and fns
+document.getElementById("clockInButton").onclick = clockInButtonPress;
+document.getElementById("clockOutButton").onclick = clockOutButtonPress;
+document.getElementById("resetButton").onclick = resetButtonPress;
+
+var startTimeLabel = document.getElementById("startTimeLabel");
+var timeLabel = document.getElementById("timeLabel");
+var runningTimeLabel = document.getElementById("runningTimeLabel");
