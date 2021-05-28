@@ -4,7 +4,7 @@
   "description": "Tracks time",
   "main": "main.js",
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
+    "build": "tsc src/*.ts",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-packager . timekeeper --icon ./assets/favicon.icns --out dist"
