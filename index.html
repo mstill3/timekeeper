@@ -13,12 +13,6 @@
       <div class="box">
         <h1 class="title">timekeeper</h1>
         <h2 class="subtitle">Tracks your time in and out</h2>
-        <!-- <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
-      </p> -->
-
 
         <button class="button is-success" id="clockInButton" type="button">clock in</button>
         <button class="button is-warning" id="clockBreakInButton" type="button">take break</button>
@@ -30,15 +24,18 @@
       <div class="box">
         <div class="columns">
           <div class="column">
-            <span id="startTimeLabel"></span>
+            <span id="currentRecordStartDateLabel"></span>
           </div>
           <div class="column">
-            <span id="timeLabel"></span>
+            <span id="currentRecordTimeElapsedLabel"></span>
           </div>
         </div>
         <div class="columns">
           <div class="column">
             <span id="runningTimeLabel"></span>
+          </div>
+          <div class="column">
+            <span id="recordsLabel"></span>
           </div>
         </div>
       </div>
@@ -46,6 +43,8 @@
     </div>
 
     <!-- You can also require other files to run in this process -->
+    <script src="./src/utils.js"></script>
+    <script src="./src/interfaces.js"></script>
     <script src="./src/timekeeper.js"></script>
     <script src="./renderer.js"></script>
   </body>
