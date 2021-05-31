@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css" />
     <link rel="stylesheet" href="./style.css" />
     <title>timekeeper</title>
@@ -24,18 +25,30 @@
       <div class="box">
         <div class="columns">
           <div class="column">
-            <span id="currentRecordStartDateLabel"></span>
+            <span id="currentRecordStartDateLabel">---</span>
           </div>
           <div class="column">
-            <span id="currentRecordTimeElapsedLabel"></span>
+            <span id="status" class="icon"></span>
+            <span id="currentRecordTimeElapsedLabel">---</span>
           </div>
         </div>
-        <div class="columns">
+      </div>
+
+      <div class="box">
+        <!-- <div class="columns">
           <div class="column">
             <span id="runningTimeLabel"></span>
           </div>
+        </div> -->
+        <div class="columns">
           <div class="column">
-            <span id="recordsLabel"></span>
+            <!-- <span id="recordsLabel"></span> -->
+            <div class="table-container">
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="timeTable">
+                <tr> <th>StartDate</th> <th>Elapsed Time</th> </tr>
+                <!-- Your table content -->
+              </table>
+            </div>
           </div>
         </div>
       </div>

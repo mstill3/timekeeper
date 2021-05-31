@@ -28,48 +28,43 @@ const getTimeElapsed = (): TimeDifference => {
   }
 };
 
-
-const getPlural = (num: number, word: string) =>
-  num === 1 ? ` ${word} ` : ` ${word}s `;
-
-
-const prettyOutput = (timeDifference: TimeDifference): string =>
-  (timeDifference.days
-    ? timeDifference.days + getPlural(timeDifference.days, "day")
-    : ""
-  ).concat(
-    (timeDifference.hours
-      ? timeDifference.hours + getPlural(timeDifference.hours, "hour")
-      : ""
-    ).concat(
-      (timeDifference.minutes
-        ? timeDifference.minutes + getPlural(timeDifference.minutes, "minute")
-        : ""
-      ).concat(
-        timeDifference.seconds
-          ? timeDifference.seconds + getPlural(timeDifference.seconds, "second")
-          : "0 seconds"
-      )
-    )
-  );
-
 //====================
 // Button press fns
 //====================
 const clockInButtonPress = () => {
   currentRecord['start'] = now();
   // console.log(lastTimePoint);
+
   currentRecordStartDateLabel.innerHTML = new Date().toDateString();
+  statusIcon.innerHTML = '<i class="fas fa-play"></i>';
   // localStorage.setItem('test', 'Matt');
+};
+
+const clockBreakInButtonPress = () => {
+  statusIcon.innerHTML = '<i class="fas fa-pause"></i>';
+};
+
+const clockBreakOutButtonPress = () => {
+  statusIcon.innerHTML = '<i class="fas fa-play"></i>';
 };
 
 const clockOutButtonPress = () => {
   if (currentRecord['start']) {
     runningTotal = getTimeElapsed();
     currentRecord['end'] = now();
-    records.push(currentRecord);
+    records.unshift(currentRecord);
     currentRecord = {};
-    currentRecordTimeElapsedLabel.innerHTML = "";
+
+    statusIcon.innerHTML = '';
+
+    currentRecordStartDateLabel.innerHTML = "---";
+    currentRecordTimeElapsedLabel.innerHTML = "---";
+
+    document.querySelector('#timeTable').innerHTML = records.reduce((html, record) => {
+      html += `<tr> <td> ${new Date(record.start).toDateString()} </td> <td> ${prettyOutput(getTimeElapsed1(record.start, record.end))} </td> </tr>`;
+      return html;
+    }, `<tr> <th>StartDate</th> <th>Elapsed Time</th> </tr>`);
+
   }
   // alert(localStorage.getItem('test'));
 };
@@ -99,12 +94,16 @@ setInterval(() => {
 //=======================================
 // Connect html elements to vars and fns
 //=======================================
-document.getElementById("clockInButton").onclick = clockInButtonPress;
-document.getElementById("clockOutButton").onclick = clockOutButtonPress;
-document.getElementById("resetButton").onclick = resetButtonPress;
+$("clockInButton").onclick = clockInButtonPress;
+$("clockBreakInButton").onclick = clockBreakInButtonPress;
+$("clockBreakOutButton").onclick = clockBreakOutButtonPress;
+$("clockOutButton").onclick = clockOutButtonPress;
+$("resetButton").onclick = resetButtonPress;
 
-const currentRecordStartDateLabel = document.getElementById("currentRecordStartDateLabel");
-const currentRecordTimeElapsedLabel = document.getElementById("currentRecordTimeElapsedLabel");
+const statusIcon = $("status");
 
-const runningTimeLabel = document.getElementById("runningTimeLabel");
-const recordsLabel = document.getElementById("recordsLabel");
+const currentRecordStartDateLabel = $("currentRecordStartDateLabel");
+const currentRecordTimeElapsedLabel = $("currentRecordTimeElapsedLabel");
+
+const runningTimeLabel = $("runningTimeLabel");
+const recordsLabel = $("recordsLabel");

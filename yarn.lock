@@ -18,6 +18,11 @@
     global-agent "^2.0.2"
     global-tunnel-ng "^2.7.1"
 
+"@fortawesome/fontawesome-free@^5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.3.tgz#c36ffa64a2a239bf948541a97b6ae8d729e09a9a"
+  integrity sha512-rFnSUN/QOtnOAgqFRooTA3H57JLDm0QEG/jPdk+tLQNL/eWd+Aok8g3qCI+Q1xuDPWpGW/i9JySpJVsq8Q0s9w==
+
 "@npmcli/arborist@^2.3.0", "@npmcli/arborist@^2.5.0", "@npmcli/arborist@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@npmcli/arborist/-/arborist-2.6.0.tgz#8006d1a60435199db6ee72d4c0772869bb75557a"
@@ -155,6 +160,11 @@
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
+
+"@stencil/core@^2.5.0":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.5.2.tgz#ad00d495ee37bbed4044524d59c7f22de15ab4a7"
+  integrity sha512-bgjPXkSzzg1WnTgVUm6m5ZzpKt602WmA/QljODAW1xVN40OHJdbGblzF/F6MFzqv2c5Cy30CB41arc8qADIdcQ==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -1303,6 +1313,13 @@ install@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/install/-/install-0.13.0.tgz#6af6e9da9dd0987de2ab420f78e60d9c17260776"
   integrity sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==
+
+ionicons@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.5.1.tgz#c337b2a0871c18910dea5c72384b0f0a393abf15"
+  integrity sha512-1auVisfaXmkmxINer8Q3kJGHP1vSxk86hf7By95eJ+Av9+oBcNuAEBfSe3jaMaGRVxVw8U/2j23MFq7R3c0HPg==
+  dependencies:
+    "@stencil/core" "^2.5.0"
 
 ip-regex@^4.1.0:
   version "4.3.0"
